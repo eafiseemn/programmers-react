@@ -31,6 +31,7 @@ actualDomElement.append(divElement);
 /*
   virtual DOM (가상 문서 객체 모델)
   실제 DOM을 추상화 (단순화)
+  직접 만든 라이브러리 함수를 활용한 virtual DOM 실습
  */
 
 // 자식 요소 생성 및 속성 & 컨텐츠 설정
