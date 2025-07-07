@@ -50,8 +50,6 @@ setTimeout(() => {
       title: 'Life on Earth'
     }
   ]
-
-  console.log(listData);
 }, 1000);
 
 setTimeout(() => {
@@ -62,8 +60,6 @@ setTimeout(() => {
       title: "Saturn's Massive Storms"
     }
   ]
-
-  console.log(listData);
 }, 2000);
 
 setTimeout(() => {
@@ -74,8 +70,6 @@ setTimeout(() => {
       title: 'Explore Mars Now'
     }
   ]
-
-  console.log(listData);
 }, 3000);
 
 setTimeout(() => {
@@ -86,7 +80,5 @@ setTimeout(() => {
       title: 'Moonlight and Craters'
     }
   ]
-
-  console.log(listData);
 }, 4000);
 
