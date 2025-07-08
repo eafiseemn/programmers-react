@@ -1,3 +1,5 @@
+import isTrueOrFalse from "@/utils/isTrueOrFalse";
+
 export const statusMessage:StatusMessage[] = [
   '⌛️ 대기',
   '⏳ 로딩 중...',
@@ -11,3 +13,5 @@ export const imageType:ImageType[] = [
   'kakao talk',
   'next.js'
 ]
+
+export const isShowReactImage:boolean = isTrueOrFalse();
