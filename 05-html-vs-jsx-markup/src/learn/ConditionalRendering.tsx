@@ -36,13 +36,13 @@ function ConditionalRendering({imageType}:Props) {
   const tf = isTrueOrFalse();
 
   // const spinnerOrVite = imageInput === 'vite' ?
-  const spinnerOrVite = tf ?
+  const spinnerOrLogo = tf ?
     (<img src="/icons/spinner.svg" alt="로딩 중..."></img>) :
     (<img src={iconPath} alt="vite 로고" />)
             
   return (
     <>
-      <dt>조건부 렌더링 (Conditional Rendering) ({tf && '스피너 표시'})</dt>
+      <dt>조건부 렌더링 (Conditional Rendering) ({tf ? "스피너 표시" : "로고" })</dt>
       <dd>
         <p>이미지 타입(image type)에 따라 렌더링 여부를 결정합니다.</p>
         <div className="conditionalRendering">
@@ -53,7 +53,7 @@ function ConditionalRendering({imageType}:Props) {
       <dd>
         <p>spinner 또는 vite 이미지가 랜덤으로 화면에 렌더링 되도록 합니다.</p>
         <div className="conditionalRendering">
-          { spinnerOrVite }
+          { spinnerOrLogo }
         </div>
       </dd>
     </>
