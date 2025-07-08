@@ -15,3 +15,18 @@ export const imageType:ImageType[] = [
 ]
 
 export const isShowReactImage:boolean = isTrueOrFalse();
+
+export const reactLibrary:ReactLibrary = {
+  name: 'React',
+  author: '조던 워케(Jordan Walke)',
+  writtenIn: 'JavaScript',
+  type: 'JavaScript Library',
+  license: 'MIT'
+}
+
+export const statusMessageWithId:StatusMessageWithId[] = [
+  { id: 'message-xyz', message: '🥹 대기' },
+  { id: 'message-air', message: '🧐 로딩 중...' },
+  { id: 'message-ckd', message: '🥳 로딩 성공!' },
+  { id: 'message-eid', message: '😵 로딩 실패' }
+]
