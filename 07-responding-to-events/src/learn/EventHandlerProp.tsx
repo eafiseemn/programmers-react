@@ -6,15 +6,15 @@ interface Props {
 function EventHandlerProp({onClick, onUpdateMessage}: Props) {  
 
   const handleMouseEnter = () => {
-    console.log('enter');
+    // console.log('enter');
     onUpdateMessage('🍎') // 부모의 함수도 Prop으로 전달되면 공유될 수 있음
   }
   const handleMouseLeave = () => {
-    console.log('leave');
+    // console.log('leave');
   }
 
   return (
-    <details>
+    <details open>
       <summary 
         onClick={onClick}
         onMouseEnter={handleMouseEnter}

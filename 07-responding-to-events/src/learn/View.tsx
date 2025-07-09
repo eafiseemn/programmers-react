@@ -1,5 +1,6 @@
 import { useState } from "react";
 import EventHandlerProp from "./EventHandlerProp";
+import EventPropagation from "./EventPropagation";
 
 function View() {
   return (
@@ -69,6 +70,9 @@ function RespondingToEvents() {
           onClick={handler} 
           onUpdateMessage={updateMessage}
         />
+      </div>
+      <div>
+        <EventPropagation />
       </div>
     </div>
   )
