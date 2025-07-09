@@ -1,6 +1,8 @@
 import { useState } from "react";
 import EventHandlerProp from "./EventHandlerProp";
 import EventPropagation from "./EventPropagation";
+import EventWithSideEffects from "./EventWithSideEffects";
+import ScrollDown from "./ScrollDown";
 
 function View() {
   return (
@@ -73,6 +75,12 @@ function RespondingToEvents() {
       </div>
       <div>
         <EventPropagation />
+      </div>
+      <div>
+        <EventWithSideEffects />
+      </div>
+      <div>
+        <ScrollDown />
       </div>
     </div>
   )
