@@ -25,11 +25,9 @@ function Form() {
   const [ error, setError ] = useState<Error | null>(null);
   const [ status, setStatus ] = useState<Status>('typing');
 
-  const debounceSetAnswer = useMemo(() => {
-    debounce((value: string) => {
-      setAnswer(value);
-    }, 3000)
-  }, []);
+  const debounceSetAnswer: (value:string) => void = useMemo(() => {
+    return debounce((value: string) => setAnswer(value), 300) }
+   , [])
 
   if( status === 'success' ) {
     return (
