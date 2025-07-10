@@ -33,11 +33,19 @@ const render = () => {
  */
 const [ state, setState ] = createState(data, render);
 
-console.log('초기 상태', state.checked);
-
-function update() {
-  const nextCheckedValue = !state.checked;
-  setState('checked', nextCheckedValue);
+/* 브라우저 콘솔에서 update(true) 테스트를 할 수 있도록 타입 지정 */
+declare global {
+  var update: (value:boolean) => void;
 }
 
-checkbox.addEventListener('change', update);
+/* setState('checked', value) 호출 */
+const update = (globalThis.update = (value) => setState('checked', value)); 
+  // { 
+  // const nextCheckedValue = !state.checked;
+  // setState('checked', nextCheckedValue);
+// }
+
+checkbox.addEventListener('change', (e:Event) => {
+  const { checked } = e.target as HTMLInputElement;
+  update(checked);
+});
