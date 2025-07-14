@@ -8,7 +8,7 @@ export type Note = (typeof notesData)[number] & {
 }
 
 /* 관계형 데이터 생성 */
-export function getNoteList() {
+export function getNoteList():Note[] {
   return notesData.map(note => {
     const user = usersData.find(user => user.id === note.userId);
     if(user) {
@@ -20,7 +20,7 @@ export function getNoteList() {
 }
 
 /* 특정 id에 해당하는 note + userInfo만 출력 */
-export function getNoteItem(noteId:number) {
+export function getNoteItem(noteId:number):Note | null {
   const notes = getNoteList();
   const note = notes.find(note => note.id === noteId);
   return note ? note : null;
