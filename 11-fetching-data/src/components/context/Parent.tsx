@@ -5,6 +5,7 @@
 import Child from "./Child";
 
 function Parent({username}:{username:string}) {
+// function Parent() {
   return (
     <div style={{
       border: '1px solid grey',
@@ -12,6 +13,7 @@ function Parent({username}:{username:string}) {
     }}>
       <h2>(Parent) 바뀐다</h2>
       <Child username={username} />
+      {/* <Child /> */}
 
     </div>
   )
