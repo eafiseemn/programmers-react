@@ -3,7 +3,8 @@
 /* -------------------------------------------------------------------------- */
 
 import { useContext } from "react"
-import { UserContext } from "./App"
+import { UserContext } from "./UserContext";
+
 
 function GrandChild({username}:{username:string}) {
 
@@ -18,7 +19,7 @@ function GrandChild({username}:{username:string}) {
       <h4>(GrandChild) 바뀌었나?</h4>
       <hr></hr>
       <p>안녕하세요, {username} 님!</p>
-      {/* <p>안녕하세요, {ctx} 님!</p> */}
+      <p>안녕하세요, {ctx?.username} 님!</p>
     </div>
   )
 }

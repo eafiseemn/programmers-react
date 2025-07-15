@@ -1,16 +1,9 @@
 /* -------------------------------------------------------------------------- */
 /*                        Props Drilling / context API                        */
 /* -------------------------------------------------------------------------- */
-
-import { createContext, useState } from "react";
+import { useState } from "react";
 import Parent from "./Parent";
-
-interface UserContextType {
-  username: string;
-}
-
-export const UserContext = createContext<UserContextType | null>(null);
-
+import { UserContext } from "./UserContext";
 
 function App() {
 
