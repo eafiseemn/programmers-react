@@ -1,9 +1,6 @@
+import AccessDom from "@/pages/AccessDom";
 import Home from "@/pages/Home/Home";
-import Remember from "@/pages/Remember/index";
-
-
-
-
+import Remember from "@/pages/Remember";
 
 export const routes = [
   {
@@ -15,6 +12,11 @@ export const routes = [
     title:'Re-Render 없이 기억하기',
     path:'/re-render',
     element: <Remember />
+  },
+  {
+    title:'DOM Node 접근 / 조작',
+    path:'/access-dom',
+    element: <AccessDom />
   }
 ]
 
