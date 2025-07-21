@@ -1,5 +1,8 @@
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
+import Product from "@/pages/Product";
+import ProductDetail from "@/pages/ProductDetail";
+import Register from "@/pages/Register";
 
 export const routes = [
   {
@@ -10,7 +13,7 @@ export const routes = [
   {
     title: 'Products',
     path: '/Product',
-    element: <div>Product Page</div>
+    element: <Product />
   },
   {
     title: 'Contact',
@@ -25,6 +28,11 @@ export const routes = [
   {
     title: 'Register',
     path: '/Register',
-    element: <div>Register</div>
+    element: <Register />
+  },
+  {
+    title: 'ProductDetail',
+    path: '/Product/:id',
+    element: <ProductDetail />
   },
 ]

@@ -90,7 +90,13 @@ function Login() {
             }}>잘못된 아이디 또는 비밀번호입니다.</p>
           }
           <hr />
-          <a href="#">아직 Avie Muah 회원이 아니신가요?</a>
+          <a href="#"
+            onClick={(e)=>{
+              e.preventDefault();
+              history.pushState(null, '', '/Register');
+              setHistoryRoute('/Register');
+            }}
+          >아직 Avie Muah 회원이 아니신가요?</a>
         </form>
       </div>
     </div>

@@ -3,16 +3,52 @@ import S from './Header.module.css';
 import NavLink from '../NavLink';
 import { useAuth } from '@/auth/AuthProvider';
 import Swal from 'sweetalert2';
+import { getAvatarUrl } from '@/api/getAvatarUrl';
+import { useEffect, useState } from 'react';
 
 function Header() {
   
-  const { isAuth, logout } = useAuth();
+  const { isAuth, user, logout } = useAuth();
   // console.log(user, isAuth);
-  
+
+  const [ avatarUrl, setAvatarUrl ] = useState< string | null >(null);
+  const [ isAvatarLoaded, setIsAvatarLoaded ] = useState<boolean>(false);
+
   const visibleRoutes = routes.filter(({title})=>{
-    if(isAuth) return title !== 'Login' && title !== 'Register';
-    return title !== 'Register';
+    if(isAuth) return title !== 'Login' && title !== 'Register' && title !== 'ProductDetail';
+    return title !== 'Register' && title !== 'ProductDetail';
   });
+
+  useEffect(()=>{
+  //   if(isAuth) {
+  //   let storageKey = ''
+  //   for (let i=0; i < localStorage.length; i++ ) {
+  //     storageKey = localStorage.key(i) || '';
+  //     if(storageKey?.endsWith('-auth-token')) break;
+  //   }
+
+  //   const tokenInfo = JSON.parse(localStorage.getItem(storageKey)!);
+  //   const userId = tokenInfo?.user.id;
+  //   getAvatarUrl(userId)
+  //   .then(res => setAvatarPreview(res));
+  // }
+  //   return setAvatarPreview(null);
+
+    const fetchAvatarUrl = async () => {
+      if(user) {
+        const url = await getAvatarUrl(user.id);
+        setAvatarUrl(url);
+        setIsAvatarLoaded(true);
+      }
+    }
+    fetchAvatarUrl();
+
+  //   return {
+  //     setAvatarUrl(null);
+  //     setIsAvatarLoaded(false);
+  // }
+  }, [user])
+  
 
   const handleLogOut = (e:React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -50,7 +86,20 @@ function Header() {
                 <a onClick={handleLogOut} href='#'>Logout</a>
               </li>)
           }
+          { isAvatarLoaded && 
+          <li>
+            <img src={avatarUrl || '/defaultProfile.jpg'}
+              style={{
+                width: "25px",
+                height: "25px",
+                border: '1px solid #fff',
+                borderRadius: '50%',
+                display: 'inline-block'
+              }}
+            />
+           </li>}
         </ul>
+        
       </nav>
     </header>
   )
