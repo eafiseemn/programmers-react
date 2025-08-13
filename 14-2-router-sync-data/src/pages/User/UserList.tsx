@@ -1,7 +1,9 @@
 import type { User } from "@/@types/global";
-import { Link, Outlet, useLoaderData, useMatch } from "react-router"
+import { Link, Outlet, useLoaderData, useMatch, useNavigate } from "react-router"
 
 function UserList() {
+
+  const navigate = useNavigate();
 
   const userList = useLoaderData() as User[];
 
@@ -18,6 +20,7 @@ function UserList() {
           ))
         }
       </ul>
+      <button type="button" onClick={() => navigate('/users/new')}>새로운 유저 추가하기</button>
     </div>
   )
 }

@@ -12,7 +12,7 @@
 import { loader as trendingLoader } from "@/pages/Concerts/Trending";
 import { loader as userDetailLoader } from "@/pages/User/UserDetail";
 import { lazy } from "react";
-import { createBrowserRouter, Outlet } from "react-router";
+import { createBrowserRouter, Outlet, redirect } from "react-router";
 
 /* Code Splitting */
 const Root = lazy(() => import('@/pages'));
@@ -30,6 +30,7 @@ const City = lazy(() => import('@/pages/Concerts/City'));
 
 const UserList = lazy(() => import('@/pages/User/UserList'));
 const UserDetail = lazy(() => import('@/pages/User/UserDetail'));
+const NewUser = lazy(() => import('@/pages/User/NewUser'));
 
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
@@ -78,7 +79,16 @@ export const routes = createBrowserRouter([
             //     console.error('fetch 실패');
             //   }
             // },
-            loader: trendingLoader
+            loader: trendingLoader,
+            // routes 내에서 lazy 처리
+            // lazy: async () => {
+            //   const mod = await import('@/pages/Concerts/Trending');
+
+            //   return {
+            //     Component: mod.default,
+            //     loader: mod.loader
+            //   }
+            // }
           },
         ]
       },
@@ -97,9 +107,26 @@ export const routes = createBrowserRouter([
             // HydrateFallback: () => <div>데이터 로딩 중...</div>,
             // Component 내부에 Suspense가 있으면 Hydrate 안써도 됨
             loader: userDetailLoader
+          },
+          {
+            path: 'new',
+            Component: NewUser,
+            // react-router의 Form submit 이후 action 정의
+            action: async ( { request } ) => {
+              const formData = await request.formData();
+              const name = formData.get('name') as string;
+              const email = formData.get('email') as string;
+
+              console.log(name,email);
+              // 서버에 Insert 통신
+              // const { data, error } = await supabase.from('users').insert({name, email});
+
+              return redirect('/users');
+            }
           }
         ]
-      }
+      },
+      
     ]
   },
   { path: '*', Component: NotFound }
