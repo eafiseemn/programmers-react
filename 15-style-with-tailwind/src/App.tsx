@@ -1,4 +1,5 @@
 import Button_clsx from './components/Button_clsx';
+import Button_cva from './components/Button_cva';
 import Button_tw from './components/Button_tw';
 import Button_twMerge from './components/Button_twMerge';
 import ChatCard from './components/ChatCard';
@@ -20,11 +21,17 @@ function App() {
       <hr className='divider' />
       <Profile />
       <hr className='divider' />
-      <Button_twMerge className='bg-red-400' type='primary'>Call To Action</Button_twMerge>
-      <hr className='divider' />
-      <Button_clsx size='sm'>Call To Action</Button_clsx>
-      <hr className='divider' />
-      <Button_tw size='sm' disabled className='bg-emerald-400'>Call To Action</Button_tw>
+      <div className='p-4'>
+        <Button_twMerge className='bg-red-400' type='primary'>Call To Action</Button_twMerge>
+        <hr className='divider' />
+        <Button_clsx size='sm'>Call To Action</Button_clsx>
+        <hr className='divider' />
+        <Button_tw size='sm' disabled className='bg-emerald-400'>Call To Action</Button_tw>
+        <hr className='divider' />
+        <Button_cva intent="secondary" size="lg" className='bg-indigo-500'>Call To Action</Button_cva>
+        <hr className='divider' />
+        <Button_cva intent="primary" size="lg" block loading={true}  className='text-4xl'>Call To Action</Button_cva>
+      </div>
     </div>
   )
 }

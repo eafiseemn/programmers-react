@@ -23,13 +23,13 @@ function Button_tw({ children, size, className, disabled }:Props) {
             size === 'sm' && "px-2 py-1 text-sm",
             size === 'md' && "px-4 py-2 text-base",
             size === 'lg' && "px-6 py-3 text-lg",
-            disabled ? 'opacity-50 cursor-not-allowed' : '',
+            buttonDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
             className
           )
       }>{children}</button>
       <button 
         onClick={toggleDisabled}
-        className="m-4 rounded-full bg-slate-500 text-slate-100 text-xs px-2 py-1"
+        className="m-4 rounded-full bg-slate-500 text-slate-100 text-xs px-2 py-1 cursor-pointer"
       >Toggle</button>
     </>
   )
