@@ -92,3 +92,7 @@
     }
   }
 }
+
+body {
+  background-color: var(--color-blue-950);
+}
