@@ -1,4 +1,5 @@
 import ChatCard from './components/ChatCard';
+import ProfileCard from './components/ProfileCard';
 // import Playground from './components/Playground';
 import '/src/styles/style.css';
 
@@ -10,6 +11,10 @@ function App() {
       {/* bg = background-color, text = color, p = padding (4px grid), mb = marginBottom, ... */}
       {/* <Playground /> */}
       <ChatCard />
+
+      <hr className='my-5' />
+
+      <ProfileCard />
     </div>
   )
 }
