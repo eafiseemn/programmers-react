@@ -35,6 +35,16 @@ function Playground() {
           <button>CTA</button>
         </div>
       </div>
+
+      <div className="p-4 border-1 border-indigo-400 m-2 rounded-lg">
+        <strong>Style With Utilities</strong>
+        <hr className="mb-2" />
+        <button 
+          type="button"
+          className="bg-sky-500 text-sky-100 px-4 py-2 rounded-xl cursor-pointer
+          hover:bg-sky-600 hover:text-sky-950"
+        >Save Changes</button>
+      </div>
     </div>
   )
 }
