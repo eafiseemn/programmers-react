@@ -1,3 +1,4 @@
+import Button_twMerge from './components/Button_twMerge';
 import ChatCard from './components/ChatCard';
 import Profile from './components/Profile';
 import ProfileCard from './components/ProfileCard';
@@ -12,10 +13,12 @@ function App() {
       {/* bg = background-color, text = color, p = padding (4px grid), mb = marginBottom, ... */}
       {/* <Playground /> */}
       <ChatCard />
-      <hr className='my-5' />
+      <hr className='divider' />
       <ProfileCard />
-      <hr className='my-5' />
+      <hr className='divider' />
       <Profile />
+      <hr className='divider' />
+      <Button_twMerge className='bg-red-400' type='primary'>Call To Action</Button_twMerge>
     </div>
   )
 }

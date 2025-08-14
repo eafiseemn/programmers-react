@@ -63,6 +63,11 @@
   padding: 0.3rem;
 }
 
+@utility divider {
+  color: var(--color-sky-300);
+  margin: 1.5rem 0;
+}
+
 /* components : 여러 속성을 묶는 재사용 컴포넌트 클래스 정의 */
 @layer components {
   .card {
