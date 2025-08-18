@@ -3,6 +3,7 @@ import Button_cva from './components/Button_cva';
 import Button_tw from './components/Button_tw';
 import Button_twMerge from './components/Button_twMerge';
 import ChatCard from './components/ChatCard';
+import JobCard from './components/JobCard';
 import Profile from './components/Profile';
 import ProfileCard from './components/ProfileCard';
 // import Playground from './components/Playground';
@@ -31,6 +32,12 @@ function App() {
         <Button_cva intent="secondary" size="lg" className='bg-indigo-500'>Call To Action</Button_cva>
         <hr className='divider' />
         <Button_cva intent="primary" size="lg" block loading={true}  className='text-4xl'>Call To Action</Button_cva>
+      </div>
+      <hr className='divider' />
+      <div className='flex gap-4 flex-wrap px-4'>
+      <JobCard type='primary' logoSrc='facebook' rate='$120/hr' title='Senior UI Developer' company='Facebook' />
+      <JobCard type='secondary' logoSrc='airbnb' rate='$80/hr' title='Senior Backend Engineer' company='Airbnb' />
+      <JobCard type='tertiary' logoSrc='google' rate='$250/hr' title='Azuer Data Engineer' company='Google' />
       </div>
     </div>
   )
