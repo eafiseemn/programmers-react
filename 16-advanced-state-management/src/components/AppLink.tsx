@@ -1,4 +1,6 @@
 import tw from "@/utils/tw";
+import { memo } from "react";
+// import { Helmet } from "@dr.pogodin/react-helmet";
 
 /* 
 외부 사이트(external link)는 보통 현재 페이지를 유지한 채 새 탭에서 사이트를 열어주는게 국룰 
@@ -25,12 +27,15 @@ function AppLink( { children, href, isExternal, className, ...restProps }:Props 
   const externalProps = isExternal ? { target: "_blank", rel:"noreferrer noopener" } : {};
   return (
     // Child Component에 meta를 주면 중첩되어 쌓임
+    // react-helmet 라이브러리를 사용해서 meta가 중첩되지 않고 자식이 부모를 override 하도록 처리
     <>
-      {/* <title>Zustand | Child Component</title> */}
-      <meta 
-      property="og:description" 
-      content="Front-End 개발자를 꿈꾸지만 어쩐지 맨날 Figma를 만지고 있습니다." 
-    />
+      {/* <Helmet>
+        <title>Zustand | Child Component</title>
+        <meta 
+          property="og:description" 
+          content="Front-End 개발자를 꿈꾸지만 어쩐지 맨날 Figma를 만지고 있습니다." 
+        />
+      </Helmet> */}
       <a 
         href={href}
         className={tw("text-in-500 hover:text-accent", className)}
@@ -40,4 +45,4 @@ function AppLink( { children, href, isExternal, className, ...restProps }:Props 
     </>
   )
 }
-export default AppLink
+export default memo(AppLink, () => true );

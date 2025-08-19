@@ -1,4 +1,8 @@
 import AppLink from "@/components/AppLink"
+import Divider from "@/components/Divider"
+import Counter from "@/miniApp/Counter"
+import Counter_ from "@/miniApp/Counter/index_"
+import { Helmet } from "@dr.pogodin/react-helmet"
 
 const htmlTag = (
   <>
@@ -23,19 +27,20 @@ const htmlTag = (
   </>
 )
 
-// const helmetTag = (
-//   <Helmet>
-//     <title>앱 글로벌 상태 관리 with Zustand</title>
-//   </Helmet>
-// )
+const helmetTag = (
+  <Helmet>
+    { htmlTag }
+    {/* <title>앱 글로벌 상태 관리 with Zustand</title> */}
+  </Helmet>
+)
 
 function Home() {
 
   return (
     <section id="page">
       {/* react-v19 에서는 Component 안에 meta 태그 작성 시 head로 호이스팅 */}
-      { htmlTag }
-      {/* helmetTag */}
+      {/* { htmlTag } */}
+      { helmetTag }
 
       <div className="learn">
         <h1>App Global State Management with Zustand</h1>
@@ -46,6 +51,18 @@ function Home() {
             className="text-red-400"
           >Zustand</AppLink> {' '} 
           라이브러리를 사용해 앱 또는 컴포넌트의 상태를 효과적으로 관리하는 방법을 학습합니다.</p>
+
+          <Divider />
+
+          <h2>Counter</h2>
+          <p>간단한 카운터 앱의 상태를 Custom Hook을 사용해 관리합니다.</p>
+          <Counter_ />
+
+          <Divider />
+
+          <h2>Counter</h2>
+          <p>간단한 카운터 앱의 상태를 Custom Hook을 사용해 관리합니다.</p>
+          <Counter />
       </div>
     </section>
   )

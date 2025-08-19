@@ -1,0 +1,39 @@
+
+/*
+
+tailwind의 변수는 런타임에 브라우저가 해석 -> .module.css는 사용 시점이 애매
+일반 CSS로 사용하는 건 상관 없음
+@apply 를 쓸 때 파일 안에서 @theme을 찾아야하는데, 전역 파일에만 정의되어 있어 Tailwind가 인식하지 못함
+
+-> 해결 방법
+1. 파일 모듈 상단에 다시 CSS 불러오기 (수동으로 다시 import 해줘야 인식)
+2. 변수만 직접 추출해서 작성 (var(--color-...)
+
+*/
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import '@/styles/_theme.css';
+
+.component {
+  @apply inline-flex items-center border border-solid rounded-sm border-accent;
+}
+
+.component .output {
+  @apply select-none text-sm font-light text-center text-accent;
+  inline-size: 2rem;
+}
+
+.component .group {
+  @apply inline-flex items-center flex-col;
+}
+
+.component .button {
+    @apply select-none text-[#999] text-xs bg-transparent opacity-75 p-0 border-0;
+    block-size: 14px;
+    inline-size: 14px;
+    cursor: pointer;
+  }
+
+.component .button:hover:not(:disabled) {
+  @apply opacity-100 bg-[#ededed] text-accent
+}
