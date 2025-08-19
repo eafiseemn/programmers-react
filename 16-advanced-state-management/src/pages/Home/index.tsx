@@ -2,6 +2,7 @@ import AppLink from "@/components/AppLink"
 import Divider from "@/components/Divider"
 import Counter from "@/miniApp/Counter"
 import Counter_ from "@/miniApp/Counter/index_"
+import CounterReducer from "@/miniApp/Counter/usingCounterReducer"
 import { Helmet } from "@dr.pogodin/react-helmet"
 
 const htmlTag = (
@@ -54,15 +55,22 @@ function Home() {
 
           <Divider />
 
-          <h2>Counter</h2>
+          <h2>Counter using Custom Hook</h2>
           <p>간단한 카운터 앱의 상태를 Custom Hook을 사용해 관리합니다.</p>
           <Counter_ />
 
           <Divider />
 
-          <h2>Counter</h2>
-          <p>간단한 카운터 앱의 상태를 Custom Hook을 사용해 관리합니다.</p>
+          <h2>Counter using Zustand</h2>
+          <p>간단한 카운터 앱의 상태를 Zustand를 사용해 관리합니다.</p>
           <Counter />
+
+          <Divider />
+
+          <h2>Counter using Reducer</h2>
+          <p>간단한 카운터 앱의 상태를 Reducer를 사용해 관리합니다.</p>
+          <CounterReducer />
+
       </div>
     </section>
   )

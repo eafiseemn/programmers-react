@@ -5,7 +5,7 @@ import GlobalNav from "./components/GlobalNav"
 
 function Root( ) {
   return (
-    <div className="bg-indigo-50/30 h-screen flex flex-col">
+    <div className="bg-indigo-50/30 min-h-screen flex flex-col">
       <Header />
       <GlobalNav />
       <main className="flex-1 m-4">
