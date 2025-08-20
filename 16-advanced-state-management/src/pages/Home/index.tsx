@@ -3,6 +3,7 @@ import Divider from "@/components/Divider"
 import Counter from "@/miniApp/Counter"
 import Counter_ from "@/miniApp/Counter/index_"
 import CounterReducer from "@/miniApp/Counter/usingCounterReducer"
+import Switcher from "@/miniApp/Switcher/Switch"
 import { Helmet } from "@dr.pogodin/react-helmet"
 
 const htmlTag = (
@@ -70,6 +71,16 @@ function Home() {
           <h2>Counter using Reducer</h2>
           <p>간단한 카운터 앱의 상태를 Reducer를 사용해 관리합니다.</p>
           <CounterReducer />
+
+          <Divider />
+
+          <h2>Switcher using Custom Hook</h2>
+          <p>Switch의 상태를 Custom Hook을 사용해 관리합니다.</p>
+          <Switcher size="lg" />
+          <br />
+          <Switcher />
+          <br />
+          <Switcher size="sm" />
 
       </div>
     </section>
