@@ -5,6 +5,8 @@ import Counter_ from "@/miniApp/Counter/index_"
 import CounterReducer from "@/miniApp/Counter/usingCounterReducer"
 import Switcher from "@/miniApp/Switcher/Switch"
 import SwitchReducer from "@/miniApp/Switcher/SwitchReducer"
+import TaskManager from "@/miniApp/TaskManager/TaskManager"
+import TaskManager_ from "@/miniApp/TaskManager/TaskManager_"
 import { Helmet } from "@dr.pogodin/react-helmet"
 
 const htmlTag = (
@@ -92,6 +94,18 @@ function Home() {
           <SwitchReducer defaultChecked />
           <br />
           <SwitchReducer size="sm" />
+
+          <Divider />
+
+          <h2>Task Manager with Reducer + Context</h2>
+          <p>Task Manager App의 상태를 Context + Reducer를 사용해 관리합니다.</p>
+          <TaskManager_ />
+
+          <Divider />
+
+          <h2>Task Manager</h2>
+          <p>Task Manager App의 상태를 Context + Reducer를 사용해 관리합니다.</p>
+          <TaskManager />
 
       </div>
     </section>
