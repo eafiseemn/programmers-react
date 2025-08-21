@@ -4,6 +4,7 @@ import Counter from "@/miniApp/Counter"
 import Counter_ from "@/miniApp/Counter/index_"
 import CounterReducer from "@/miniApp/Counter/usingCounterReducer"
 import Switcher from "@/miniApp/Switcher/Switch"
+import SwitchReducer from "@/miniApp/Switcher/SwitchReducer"
 import { Helmet } from "@dr.pogodin/react-helmet"
 
 const htmlTag = (
@@ -76,11 +77,21 @@ function Home() {
 
           <h2>Switcher using Custom Hook</h2>
           <p>Switch의 상태를 Custom Hook을 사용해 관리합니다.</p>
-          <Switcher size="lg" />
+          <Switcher size="lg" disabled />
           <br />
-          <Switcher />
+          <Switcher defaultChecked />
           <br />
           <Switcher size="sm" />
+
+          <Divider />
+
+          <h2>Switcher using Reducer</h2>
+          <p>Switch의 상태를 Reducer를 사용해 관리합니다.</p>
+          <SwitchReducer size="lg" disabled />
+          <br />
+          <SwitchReducer defaultChecked />
+          <br />
+          <SwitchReducer size="sm" />
 
       </div>
     </section>
