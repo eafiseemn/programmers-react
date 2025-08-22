@@ -103,8 +103,8 @@ function Home() {
 
           <Divider />
 
-          <h2>Task Manager</h2>
-          <p>Task Manager App의 상태를 Context + Reducer를 사용해 관리합니다.</p>
+          <h2>Task Manager with Zustand</h2>
+          <p>Task Manager App의 상태를 Zustand를 사용해 관리합니다.</p>
           <TaskManager />
 
       </div>

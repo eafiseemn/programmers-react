@@ -7,19 +7,6 @@ export type Task = {
 
 export type State = Task[];
 
-const ACTION_TYPE = {
-  ADD_TASK: 'Add New Task',
-  SET_TASK: 'Toggle Task Completion',
-  TOGGLE_TASK: 'Toggle Pin',
-  DELETE_TASK: 'Delete Task'
-} as const
-
-type Action = 
- | { type: typeof ACTION_TYPE.ADD_TASK, payload: string; } // task.content
- | { type: typeof ACTION_TYPE.SET_TASK, payload: { taskId:string, isCompleted:boolean }; }
- | { type: typeof ACTION_TYPE.TOGGLE_TASK, payload: string; } // task.id
- | { type: typeof ACTION_TYPE.DELETE_TASK, payload: string; } // task.id
-
 // Data Fetch
 export const INITIAL_TASK:State = [
   {
@@ -58,9 +45,17 @@ export const INITIAL_TASK:State = [
 
  */
 
+
+const ACTION_TYPE = {
+  ADD_TASK: 'Add New Task',
+  SET_TASK: 'Toggle Task Completion',
+  TOGGLE_TASK: 'Toggle Pin',
+  DELETE_TASK: 'Delete Task'
+} as const
+
 export type AddTaskAction = {
   type: typeof ACTION_TYPE.ADD_TASK;
-  payload: string;
+  payload: string; // task.content
 }
 
 export const addTask = ( nextStep:string ):AddTaskAction => ({
@@ -80,7 +75,7 @@ export const setTask = ( taskId:string, isCompleted:boolean ):SetTaskAction => (
 
 export type TogglePinAction = {
   type: typeof ACTION_TYPE.TOGGLE_TASK;
-  payload: string;
+  payload: string; // task.id
 }
 
 export const togglePin = ( taskId:string ):TogglePinAction => ({
@@ -90,7 +85,7 @@ export const togglePin = ( taskId:string ):TogglePinAction => ({
 
 export type DeleteTaskAction = {
   type: typeof ACTION_TYPE.DELETE_TASK;
-  payload: string;
+  payload: string; // task.id
 }
 
 export const deleteTask = ( deleteId:string ):DeleteTaskAction => ({
@@ -98,6 +93,12 @@ export const deleteTask = ( deleteId:string ):DeleteTaskAction => ({
   payload: deleteId,
 })
 
+
+type Action = 
+ | AddTaskAction
+ | SetTaskAction
+ | TogglePinAction
+ | DeleteTaskAction
 
 
 export default function reducer( state:State, action:Action):State {
